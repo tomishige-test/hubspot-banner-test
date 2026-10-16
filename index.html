@@ -21,6 +21,22 @@
     footer a { color: var(--main); }
     #hs_show_banner_button { margin-top: 12px; padding: 8px 18px; border: 1px solid var(--main); background: #fff; color: var(--main); border-radius: 4px; cursor: pointer; font-size: 13px; }
   </style>
+
+  <!-- ▼ HubSpot Cookieバナーの見た目調整（「拒否」を隠し、「閉じる」「設定する」の2ボタンにする） -->
+  <style id="pi-hubspot-banner">
+    /* 拒否ボタンを隠す（拒否は「設定する」の画面からできる） */
+    #hs-eu-decline-button { display: none !important; }
+    /* 左に「閉じる」、右に「設定する」を横並び */
+    #hs-eu-confirmation-button-group { display: flex !important; flex-direction: row-reverse !important; gap: 12px !important; align-items: stretch !important; }
+    #hs-eu-confirmation-button-group > * { flex: 1 1 0 !important; margin: 0 !important; }
+    #hs-eu-opt-in-buttons { display: flex !important; }
+    #hs-eu-confirmation-button, #hs-eu-cookie-settings-button { width: 100% !important; margin: 0 !important; }
+    /* 「設定する」を緑の目立つボタンに */
+    #hs-eu-cookie-settings-button { background: #009a3e !important; color: #fff !important; border: 1px solid #009a3e !important; border-radius: 6px !important; font-weight: 700 !important; text-decoration: none !important; }
+    /* 「閉じる」を控えめなグレーのボタンに */
+    #hs-eu-confirmation-button { background: #f2f2f2 !important; color: #555 !important; border: 1px solid #ccc !important; }
+  </style>
+  <!-- ▲ HubSpot Cookieバナーの見た目調整 ここまで -->
 </head>
 <body>
   <header><span class="logo">PUBLIC IDENTITY</span>（テスト）</header>
