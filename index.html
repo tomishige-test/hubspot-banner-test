@@ -25,8 +25,12 @@
   <!-- ▼ HubSpot Cookieバナーの見た目調整（「拒否」を隠し、「設定する」「閉じる」の2ボタンにする） -->
   <style id="pi-hubspot-banner">
     /* 日経電子版のCookieバナーの実寸（2026年10月16日に計測）に合わせた値 */
-    /* ===== PC：左下に幅473pxのカード ===== */
-    #hs-eu-cookie-confirmation { border-radius: 0 !important; top: auto !important; right: auto !important; left: 40px !important; bottom: 16px !important; width: min(473px, calc(100% - 32px)) !important; max-width: none !important; max-height: none !important; margin: 0 !important; transform: none !important; }
+    /* ===== PC（画面幅752px以上）：左下に幅473pxのカード。位置は日経電子版のCSSと同じ ===== */
+    #hs-eu-cookie-confirmation { border-radius: 0 !important; top: auto !important; right: auto !important; left: 16px !important; bottom: 16px !important; width: 473px !important; max-width: none !important; max-height: none !important; margin: 0 !important; transform: none !important; }
+    /* 画面幅1377px以上：中央から672px左（日経電子版の記事エリアの左端）にそろえる */
+    @media (min-width: 1377px) {
+      #hs-eu-cookie-confirmation { left: 50% !important; margin-left: -672px !important; }
+    }
     /* バナー本体：白背景・上部に紺のライン(4px)・影 */
     #hs-eu-cookie-confirmation #hs-eu-cookie-confirmation-inner { position: relative !important; background: #fff !important; color: #333 !important; border-top: 4px solid #003e70 !important; border-radius: 0 !important; box-shadow: 0 2px 8px rgba(0,0,0,.24) !important; padding: 20px 16px 16px !important; gap: 0 !important; row-gap: 0 !important; }
     #hs-eu-cookie-confirmation #hs-eu-policy-wording,
@@ -47,9 +51,9 @@
     /* 「設定する」：白地に薄いグレーの枠 */
     #hs-eu-cookie-settings-button { background: #fff !important; border: 1px solid #e8e8e8 !important; color: #333 !important; font-weight: 400 !important; text-decoration: none !important; }
 
-    /* ===== スマホ（幅600px以下）：画面下いっぱいの帯、文字小さめ ===== */
-    @media (max-width: 600px) {
-      #hs-eu-cookie-confirmation { left: 0 !important; bottom: 0 !important; width: 100% !important; }
+    /* ===== スマホ・タブレット縦（幅751px以下）：画面下いっぱいの帯、文字小さめ ===== */
+    @media (max-width: 751px) {
+      #hs-eu-cookie-confirmation { left: 0 !important; bottom: 0 !important; width: 100% !important; margin-left: 0 !important; }
       #hs-eu-cookie-confirmation #hs-eu-cookie-confirmation-inner { padding: 12px 16px 16px !important; }
       #hs-eu-cookie-confirmation #hs-eu-policy-wording,
       #hs-eu-cookie-confirmation #hs-eu-policy-wording * { font-size: 12px !important; line-height: 1.65 !important; }
@@ -96,7 +100,7 @@
   <!-- ▼▼ ここにHubSpotのトラッキングコードを貼り付けてください ▼▼
        （HubSpotの 設定 → トラッキングとアナリティクス → トラッキングコード からコピーしたもの）
        下の1行を、コピーしたコードで丸ごと置き換えます。 -->
-    <!-- Start of HubSpot Embed Code -->
+  <!-- Start of HubSpot Embed Code -->
   <script type="text/javascript" id="hs-script-loader" async defer src="//js-na2.hs-scripts.com/246293732.js"></script>
   <!-- End of HubSpot Embed Code -->
   <!-- ▲▲ HubSpotのトラッキングコード ここまで ▲▲ -->
