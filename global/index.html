@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Cookie banner test page (internal, /global/)</title>
+  <style>
+    :root { --main: #00695c; --text: #333; --bg: #f7f7f7; }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; color: var(--text); background: #fff; line-height: 1.7; }
+    header { padding: 16px 24px; border-bottom: 1px solid #ddd; }
+    header .logo { color: var(--main); font-weight: 700; letter-spacing: .08em; }
+    main { max-width: 760px; margin: 0 auto; padding: 32px 24px 160px; }
+    .note { background: #fff8e1; border: 1px solid #f0d58c; padding: 12px 16px; border-radius: 6px; font-size: 14px; }
+    h1 { font-size: 24px; }
+    h2 { font-size: 18px; border-left: 4px solid var(--main); padding-left: 10px; margin-top: 40px; }
+    footer { background: var(--bg); padding: 24px; text-align: center; font-size: 13px; }
+    footer a { color: var(--main); }
+    #hs_show_banner_button { margin-top: 12px; padding: 8px 18px; border: 1px solid var(--main); background: #fff; color: var(--main); border-radius: 4px; cursor: pointer; font-size: 13px; }
+  </style>
+
+  <!-- ▼ HubSpot Cookieバナーの見た目調整（/global/ 英語・オプトイン用） -->
+  <!--   日本語サイト用と同じ配色・サイズ・位置。違いは「Reject all」を隠さず、
+         「Accept all」と同じ見た目で並べること（EUでは拒否も承諾と同じくらい簡単である必要があるため） -->
+  <style id="pi-hubspot-banner-global">
+    /* ===== PC（画面幅752px以上）：左下に幅473pxのカード ===== */
+    #hs-eu-cookie-confirmation { border-radius: 0 !important; top: auto !important; right: auto !important; left: 16px !important; bottom: 16px !important; width: 473px !important; max-width: none !important; max-height: none !important; margin: 0 !important; transform: none !important; }
+    @media (min-width: 1377px) {
+      #hs-eu-cookie-confirmation { left: 50% !important; margin-left: -672px !important; }
+    }
+    /* バナー本体：白背景・上部に紺のライン(4px)・影 */
+    #hs-eu-cookie-confirmation #hs-eu-cookie-confirmation-inner { position: relative !important; background: #fff !important; color: #333 !important; border-top: 4px solid #003e70 !important; border-radius: 0 !important; box-shadow: 0 2px 8px rgba(0,0,0,.24) !important; padding: 20px 16px 16px !important; gap: 0 !important; row-gap: 0 !important; }
+    #hs-eu-cookie-confirmation #hs-eu-policy-wording,
+    #hs-eu-cookie-confirmation #hs-eu-policy-wording * { color: #333 !important; font-size: 14px !important; line-height: 1.6 !important; margin: 0 !important; }
+    #hs-eu-cookie-confirmation #hs-eu-policy-wording { padding-right: 20px !important; }
+    #hs-eu-cookie-confirmation #hs-eu-policy-wording a { color: #0068bc !important; text-decoration: underline !important; }
+    /* 右上の×：オプトインでは×で閉じても同意にならないため表示しない（HubSpot側でも「閉じるボタン」はオフに） */
+    #hs-eu-header-container { position: static !important; height: 0 !important; min-height: 0 !important; margin: 0 !important; padding: 0 !important; }
+    #hs-eu-close-button { display: none !important; }
+    /* ボタン：右寄せで「Cookie settings」「Reject all」「Accept all」 */
+    #hs-eu-cookie-confirmation-buttons-area { margin-top: 8px !important; }
+    #hs-eu-confirmation-button-group { display: flex !important; flex-direction: row !important; justify-content: flex-end !important; flex-wrap: wrap !important; gap: 8px !important; align-items: stretch !important; }
+    #hs-eu-opt-in-buttons { display: flex !important; gap: 8px !important; }
+    #hs-eu-decline-button { order: -1 !important; } /* 「Reject all」を「Accept all」の左に */
+    #hs-eu-confirmation-button, #hs-eu-decline-button, #hs-eu-cookie-settings-button { flex: 0 0 auto !important; white-space: nowrap !important; margin: 0 !important; min-width: 0 !important; width: auto !important; height: 40px !important; padding: 0 12px !important; border-radius: 2px !important; font-size: 12px !important; line-height: 1 !important; }
+    /* 「Accept all」と「Reject all」：同じ青・同じ大きさ（どちらも同じくらい目立つように） */
+    #hs-eu-confirmation-button, #hs-eu-decline-button { display: inline-block !important; background: #0068bc !important; border: 1px solid #0068bc !important; color: #fff !important; font-weight: 700 !important; }
+    /* 「Cookie settings」：白地に薄いグレーの枠 */
+    #hs-eu-cookie-settings-button { background: #fff !important; border: 1px solid #e8e8e8 !important; color: #333 !important; font-weight: 400 !important; text-decoration: none !important; }
+
+    /* ===== スマホ・タブレット縦（幅751px以下）：画面下いっぱいの帯 ===== */
+    @media (max-width: 751px) {
+      #hs-eu-cookie-confirmation { left: 0 !important; bottom: 0 !important; width: 100% !important; margin-left: 0 !important; }
+      #hs-eu-cookie-confirmation #hs-eu-cookie-confirmation-inner { padding: 12px 16px 16px !important; }
+      #hs-eu-cookie-confirmation #hs-eu-policy-wording,
+      #hs-eu-cookie-confirmation #hs-eu-policy-wording * { font-size: 12px !important; line-height: 1.6 !important; }
+      #hs-eu-cookie-confirmation #hs-eu-policy-wording { padding-right: 0 !important; }
+      /* 3つのボタンを横幅いっぱいに均等配置 */
+      #hs-eu-confirmation-button-group, #hs-eu-opt-in-buttons { flex: 1 1 100% !important; }
+      #hs-eu-cookie-settings-button, #hs-eu-confirmation-button, #hs-eu-decline-button { flex: 1 1 0 !important; padding: 0 8px !important; }
+    }
+  </style>
+  <!-- ▲ HubSpot Cookieバナーの見た目調整（/global/ 用） ここまで -->
+</head>
+<body>
+  <header><span class="logo">PUBLIC IDENTITY</span> (test)</header>
+
+  <main>
+    <p class="note">社内検証用ページ（/global/ 英語・オプトイン用）。This is an internal test page, not the production site.</p>
+
+    <h1>Cookie banner test page (/global/)</h1>
+    <p>This page is used to check the opt-in cookie banner for the English site.</p>
+
+    <h2>確認すること</h2>
+    <ol>
+      <li>シークレットウィンドウで開いたとき、英語のバナーが表示されるか</li>
+      <li>「Accept all」と「Reject all」が同じ見た目で並んでいるか</li>
+      <li>どのボタンも押す前は、HubSpotの計測用Cookie（__hstc、hubspotutk）が作られていないか</li>
+      <li>「Reject all」を押して再読み込みしても、計測用Cookieが作られないか</li>
+      <li>フッターの「Cookie settings」で、バナーを再び開いて選択を変えられるか</li>
+    </ol>
+
+    <h2>Dummy text</h2>
+    <p>Public Identity Inc. supports clients through digital marketing, website production and performance management solutions. This is dummy text to check how the banner overlaps the content.</p>
+  </main>
+
+  <footer>
+    <div>Public Identity Inc. (internal test)</div>
+    <div><a href="https://www.p-id.jp/about/privacy/" target="_blank" rel="noopener">Privacy Policy</a></div>
+    <button type="button" id="hs_show_banner_button"
+      onclick="(function(){ var _hsp = window._hsp = window._hsp || []; _hsp.push(['showBanner']); })()">
+      Cookie settings
+    </button>
+  </footer>
+
+  <!-- ▼▼ ここにHubSpotのトラッキングコードを貼り付けてください ▼▼
+       （HubSpotの 設定 → トラッキングとアナリティクス → トラッキングコード からコピーしたもの）
+       下の1行を、コピーしたコードで丸ごと置き換えます。 -->
+  <!-- Start of HubSpot Embed Code -->
+  <script type="text/javascript" id="hs-script-loader" async defer src="//js-na2.hs-scripts.com/246293732.js"></script>
+  <!-- End of HubSpot Embed Code -->
+  <!-- ▲▲ HubSpotのトラッキングコード ここまで ▲▲ -->
+</body>
+</html>
