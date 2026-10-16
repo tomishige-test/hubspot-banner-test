@@ -24,38 +24,36 @@
 
   <!-- ▼ HubSpot Cookieバナーの見た目調整（「拒否」を隠し、「設定する」「閉じる」の2ボタンにする） -->
   <style id="pi-hubspot-banner">
-    /* ===== PC：左下に幅700pxのカード ===== */
-    #hs-eu-cookie-confirmation { border-radius: 2px !important; top: auto !important; right: auto !important; left: 24px !important; bottom: 24px !important; width: min(700px, calc(100% - 48px)) !important; max-width: none !important; max-height: none !important; margin: 0 !important; transform: none !important; }
-    /* バナー本体：白背景・上部に紺のライン・影 */
-    #hs-eu-cookie-confirmation #hs-eu-cookie-confirmation-inner { position: relative !important; background: #fff !important; color: #333 !important; border-top: 6px solid #003e70 !important; border-radius: 2px !important; box-shadow: 0 2px 12px rgba(0,0,0,.18) !important; padding: 22px 24px 20px !important; }
+    /* 日経電子版のCookieバナーの実寸（2026年10月16日に計測）に合わせた値 */
+    /* ===== PC：左下に幅473pxのカード ===== */
+    #hs-eu-cookie-confirmation { border-radius: 0 !important; top: auto !important; right: auto !important; left: 40px !important; bottom: 16px !important; width: min(473px, calc(100% - 32px)) !important; max-width: none !important; max-height: none !important; margin: 0 !important; transform: none !important; }
+    /* バナー本体：白背景・上部に紺のライン(4px)・影 */
+    #hs-eu-cookie-confirmation #hs-eu-cookie-confirmation-inner { position: relative !important; background: #fff !important; color: #333 !important; border-top: 4px solid #003e70 !important; border-radius: 0 !important; box-shadow: 0 2px 8px rgba(0,0,0,.24) !important; padding: 20px 16px 16px !important; }
     #hs-eu-cookie-confirmation #hs-eu-policy-wording,
-    #hs-eu-cookie-confirmation #hs-eu-policy-wording * { color: #333 !important; font-size: 16px !important; line-height: 1.75 !important; margin: 0 !important; }
-    #hs-eu-cookie-confirmation #hs-eu-policy-wording { padding-right: 24px !important; }
+    #hs-eu-cookie-confirmation #hs-eu-policy-wording * { color: #333 !important; font-size: 14px !important; line-height: 1.65 !important; margin: 0 !important; }
+    #hs-eu-cookie-confirmation #hs-eu-policy-wording { padding-right: 20px !important; }
     /* 右上の×：行を取らずに右上へ重ねる */
     #hs-eu-header-container { position: static !important; height: 0 !important; min-height: 0 !important; margin: 0 !important; padding: 0 !important; }
-    #hs-eu-close-button { position: absolute !important; top: 10px !important; right: 10px !important; margin: 0 !important; width: 24px !important; height: 24px !important; }
+    #hs-eu-close-button { position: absolute !important; top: 8px !important; right: 8px !important; margin: 0 !important; width: 20px !important; height: 20px !important; }
     /* 拒否ボタンを隠す（拒否は「設定する」の画面からできる） */
     #hs-eu-decline-button { display: none !important; }
     /* 右寄せで「設定する」「閉じる」を横並び */
-    #hs-eu-cookie-confirmation-buttons-area { margin-top: 16px !important; }
-    #hs-eu-confirmation-button-group { display: flex !important; flex-direction: row !important; justify-content: flex-end !important; gap: 12px !important; align-items: stretch !important; }
+    #hs-eu-cookie-confirmation-buttons-area { margin-top: 12px !important; }
+    #hs-eu-confirmation-button-group { display: flex !important; flex-direction: row !important; justify-content: flex-end !important; gap: 8px !important; align-items: stretch !important; }
     #hs-eu-opt-in-buttons { display: flex !important; }
-    #hs-eu-confirmation-button, #hs-eu-cookie-settings-button { flex: 0 0 auto !important; white-space: nowrap !important; margin: 0 !important; min-width: 0 !important; width: auto !important; padding: 12px 18px !important; border-radius: 3px !important; font-size: 15px !important; line-height: 1.4 !important; }
+    #hs-eu-confirmation-button, #hs-eu-cookie-settings-button { flex: 0 0 auto !important; white-space: nowrap !important; margin: 0 !important; min-width: 0 !important; width: auto !important; height: 40px !important; padding: 0 12px !important; border-radius: 2px !important; font-size: 12px !important; line-height: 1 !important; }
     /* 「閉じる」：青の目立つボタン */
     #hs-eu-confirmation-button { background: #0068bc !important; border: 1px solid #0068bc !important; color: #fff !important; font-weight: 700 !important; }
     /* 「設定する」：白地に薄いグレーの枠 */
-    #hs-eu-cookie-settings-button { background: #fff !important; border: 1px solid #e0e0e0 !important; color: #333 !important; font-weight: 400 !important; text-decoration: none !important; }
+    #hs-eu-cookie-settings-button { background: #fff !important; border: 1px solid #e8e8e8 !important; color: #333 !important; font-weight: 400 !important; text-decoration: none !important; }
 
     /* ===== スマホ（幅600px以下）：画面下いっぱいの帯、文字小さめ ===== */
     @media (max-width: 600px) {
-      #hs-eu-cookie-confirmation { left: 0 !important; bottom: 0 !important; width: 100% !important; border-radius: 0 !important; }
-      #hs-eu-cookie-confirmation #hs-eu-cookie-confirmation-inner { border-top-width: 3px !important; border-radius: 0 !important; padding: 12px 12px 10px !important; box-shadow: 0 -2px 8px rgba(0,0,0,.12) !important; }
+      #hs-eu-cookie-confirmation { left: 0 !important; bottom: 0 !important; width: 100% !important; }
+      #hs-eu-cookie-confirmation #hs-eu-cookie-confirmation-inner { padding: 12px 16px 16px !important; }
       #hs-eu-cookie-confirmation #hs-eu-policy-wording,
-      #hs-eu-cookie-confirmation #hs-eu-policy-wording * { font-size: 12px !important; line-height: 1.6 !important; }
-      #hs-eu-cookie-confirmation-buttons-area { margin-top: 10px !important; }
-      #hs-eu-confirmation-button-group { gap: 8px !important; }
-      #hs-eu-confirmation-button, #hs-eu-cookie-settings-button { padding: 8px 14px !important; font-size: 12px !important; }
-      #hs-eu-close-button { top: 6px !important; right: 6px !important; width: 20px !important; height: 20px !important; }
+      #hs-eu-cookie-confirmation #hs-eu-policy-wording * { font-size: 12px !important; line-height: 1.65 !important; }
+      #hs-eu-close-button { top: 6px !important; right: 6px !important; }
     }
   </style>
   <!-- ▲ HubSpot Cookieバナーの見た目調整 ここまで -->
@@ -99,8 +97,8 @@
        （HubSpotの 設定 → トラッキングとアナリティクス → トラッキングコード からコピーしたもの）
        下の1行を、コピーしたコードで丸ごと置き換えます。 -->
   <!-- Start of HubSpot Embed Code -->
-<script type="text/javascript" id="hs-script-loader" async defer src="//js-na2.hs-scripts.com/246293732.js"></script>
-<!-- End of HubSpot Embed Code -->
+  <script type="text/javascript" id="hs-script-loader" async defer src="//js-na2.hs-scripts.com/246293732.js"></script>
+  <!-- End of HubSpot Embed Code -->
   <!-- ▲▲ HubSpotのトラッキングコード ここまで ▲▲ -->
 </body>
 </html>
